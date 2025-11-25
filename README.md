@@ -6,7 +6,6 @@ USE dataschool;
 
 -- Table structure for table `professor`
 
-DROP TABLE IF EXISTS `professor`;
 CREATE TABLE IF NOT EXISTS `professor` (
   `codprofessor` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(60) NOT NULL,
@@ -31,42 +30,42 @@ CREATE TABLE Aluno (
 
 ### Estrutura do Projeto
 
-Essas estruturas representam as camadas lógicas de uma aplicação, ajudando a separar responsabilidades e a organizar o código.
+Essas estruturas representam as camadas lÃ³gicas de uma aplicaÃ§Ã£o, ajudando a separar responsabilidades e a organizar o cÃ³digo.
 
 # Resumo das Camadas e Estruturas
 
 `1. DAL (Data Access Layer) - Camada de Acesso a Dados`
-O que é: É a camada responsável pela comunicação direta com o banco de dados ou qualquer outra fonte de dados (arquivos, serviços externos, etc.).
+O que Ã©: Ã‰ a camada responsÃ¡vel pela comunicaÃ§Ã£o direta com o banco de dados ou qualquer outra fonte de dados (arquivos, serviÃ§os externos, etc.).
 
-Responsabilidade: Realizar as operações CRUD (Create, Read, Update, Delete) dos dados.
+Responsabilidade: Realizar as operaÃ§Ãµes CRUD (Create, Read, Update, Delete) dos dados.
 
-Exemplo: Contém métodos que executam consultas SQL, chamam Stored Procedures ou usam um ORM (como Entity Framework) para buscar, inserir ou atualizar informações no DB.
+Exemplo: ContÃ©m mÃ©todos que executam consultas SQL, chamam Stored Procedures ou usam um ORM (como Entity Framework) para buscar, inserir ou atualizar informaÃ§Ãµes no DB.
 
-Foco: Persistência de Dados.
+Foco: PersistÃªncia de Dados.
 
 `2. POJO (Plain Old Java Object) / DTO (Data Transfer Object) / Model`
-O que é: No C#, o termo mais comum é DTO (Data Transfer Object) ou simplesmente Model (dependendo da arquitetura), mas o conceito é similar ao POJO. São classes simples que representam a estrutura dos dados.
+O que Ã©: No C#, o termo mais comum Ã© DTO (Data Transfer Object) ou simplesmente Model (dependendo da arquitetura), mas o conceito Ã© similar ao POJO. SÃ£o classes simples que representam a estrutura dos dados.
 
-Responsabilidade: Apenas transportar dados entre as diferentes camadas. Elas contêm apenas propriedades (com getters e setters) e não devem conter lógica de negócios.
+Responsabilidade: Apenas transportar dados entre as diferentes camadas. Elas contÃªm apenas propriedades (com getters e setters) e nÃ£o devem conter lÃ³gica de negÃ³cios.
 
 Exemplo: Uma classe Produto com propriedades como Id, Nome e Preco.
 
 Foco: Estrutura e Transporte de Dados.
 
-`3. BLL (Business Logic Layer) - Camada de Lógica de Negócios`
-O que é: É o coração da aplicação, onde reside toda a lógica de negócios e as regras específicas do sistema.
+`3. BLL (Business Logic Layer) - Camada de LÃ³gica de NegÃ³cios`
+O que Ã©: Ã‰ o coraÃ§Ã£o da aplicaÃ§Ã£o, onde reside toda a lÃ³gica de negÃ³cios e as regras especÃ­ficas do sistema.
 
-Responsabilidade: Processar os dados, aplicar regras de validação, realizar cálculos e garantir que as operações estejam de acordo com as necessidades da empresa. Esta camada usa a DAL para obter ou salvar dados.
+Responsabilidade: Processar os dados, aplicar regras de validaÃ§Ã£o, realizar cÃ¡lculos e garantir que as operaÃ§Ãµes estejam de acordo com as necessidades da empresa. Esta camada usa a DAL para obter ou salvar dados.
 
-Exemplo: Um método que calcula o preço final de um produto, aplicando impostos e descontos, antes de pedir à DAL para salvar a transação.
+Exemplo: Um mÃ©todo que calcula o preÃ§o final de um produto, aplicando impostos e descontos, antes de pedir Ã  DAL para salvar a transaÃ§Ã£o.
 
-Foco: Regras e Validações de Negócios.
+Foco: Regras e ValidaÃ§Ãµes de NegÃ³cios.
 
-`4. View (Apresentação / Interface do Usuário)`
-O que é: É a camada de apresentação ou interface do usuário (UI - User Interface).
+`4. View (ApresentaÃ§Ã£o / Interface do UsuÃ¡rio)`
+O que Ã©: Ã‰ a camada de apresentaÃ§Ã£o ou interface do usuÃ¡rio (UI - User Interface).
 
-Responsabilidade: Exibir as informações para o usuário e capturar suas interações (cliques, preenchimento de formulários). Esta camada usa a BLL para solicitar dados ou operações.
+Responsabilidade: Exibir as informaÃ§Ãµes para o usuÃ¡rio e capturar suas interaÃ§Ãµes (cliques, preenchimento de formulÃ¡rios). Esta camada usa a BLL para solicitar dados ou operaÃ§Ãµes.
 
-Exemplo: Em C#, pode ser uma página ASP.NET Core Razor, uma tela Windows Forms/WPF, ou um componente Blazor.
+Exemplo: Em C#, pode ser uma pÃ¡gina ASP.NET Core Razor, uma tela Windows Forms/WPF, ou um componente Blazor.
 
-Foco: Interação e Experiência do Usuário.
+Foco: InteraÃ§Ã£o e ExperiÃªncia do UsuÃ¡rio.
